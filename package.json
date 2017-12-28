@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "Vue.js flash message component",
   "author": "Nikita Kin <maccuro.media@gmail.com>",
+  "homepage": "http://keen-design.ru",
   "private": false,
   "main": "dist/vue-flash-message.min.js",
   "scripts": {
@@ -11,6 +12,14 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen-on-design/vue-flash-message.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keen-on-design/vue-flash-message/issues"
+  },
+  "license": "MIT",
   "keywords": [
     "vue",
     "vue2",
@@ -61,7 +70,7 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "style-loader": "^0.19.1",
-    "uglifyjs-webpack-plugin": "^1.1.1",
+    "uglifyjs-webpack-plugin": "^1.1.5",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
@@ -79,9 +88,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "homepage": "https://github.com/keen-on-design/vue-flash-message",
-  "bugs": {
-    "url": "https://github.com/keen-on-design/vue-flash-message/issues"
-  }
+  ]
 }
