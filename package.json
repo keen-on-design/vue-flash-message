@@ -4,6 +4,7 @@
   "description": "Vue.js flash message component",
   "author": "Nikita Kin <maccuro.media@gmail.com>",
   "private": false,
+  "main": "dist/vue-flash-message.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
