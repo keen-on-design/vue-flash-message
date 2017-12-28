@@ -1,5 +1,7 @@
 import FlashMessageComponent from './FlashMessageComponent';
 
+require('./FlashMessage.css');
+
 export default {
   install(Vue, config) {
     const options = config || {};
