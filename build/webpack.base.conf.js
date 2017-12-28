@@ -1,8 +1,9 @@
 'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -42,7 +43,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
