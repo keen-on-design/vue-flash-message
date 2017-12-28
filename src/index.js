@@ -9,10 +9,6 @@ export default {
       data() {
         return {
           flashStorage: {
-            test: {
-              message: 'some shitty message',
-              type: 'error',
-            },
           },
         };
       },
