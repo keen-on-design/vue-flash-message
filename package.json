@@ -79,5 +79,9 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "homepage": "https://github.com/keen-on-design/vue-flash-message",
+  "bugs": {
+    "url": "https://github.com/keen-on-design/vue-flash-message/issues"
+  }
 }
