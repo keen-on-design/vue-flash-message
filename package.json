@@ -33,6 +33,7 @@
     "vue-alert"
   ],
   "dependencies": {
+    "util-guid": "^1.0.1",
     "vue": "^2.5.2"
   },
   "devDependencies": {
