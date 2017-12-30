@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 const defaultTemplate = `
 <div class="flash__wrapper" @flash="updateFlash">
   <template v-for="(message, index) in storage">
@@ -35,8 +37,6 @@ export default function ({
     template = defaultTemplate,
     // <Boolean> if false then clear persisted storage every time
     keep = true,
-    // <Storage> persistant storage
-    storageKey = '$flashStorage',
     // <Array> custom css classes for template
     css = null,
   } = {}, bus,
@@ -62,11 +62,11 @@ export default function ({
         message: null,
         closed: false,
         _timeout: null,
-      }, { duration, storageKey, css, keep });
+      }, { duration, css });
     },
     computed: {
       storage() {
-        return bus.flashStorage;
+        return bus.storage;
       },
       show() {
         return !this.closed;
@@ -81,14 +81,11 @@ export default function ({
       },
 
       closeFlash(id) {
-        const storage = {};
-        Object.assign(storage, bus.flashStorage);
-        delete storage[id];
-        bus.flashStorage = storage;
+        Vue.delete(this.storage, id);
       },
 
       closeFlashAfterTimeout(id, timeout) {
-        const flash = bus.flashStorage[id];
+        const flash = bus.storage[id];
         flash.timer = window.setTimeout(() => {
           this.closeFlash(id);
         }, timeout);
@@ -99,15 +96,18 @@ export default function ({
       },
     },
     created() {
-      bus.$on('flash', (id, msg, config) => {
+      bus.$on('flash', (flash, msg, config) => {
         if (config.timeout > 0) {
-          this.closeFlashAfterTimeout(id, config.timeout);
+          this.closeFlashAfterTimeout(flash.id, config.timeout);
         }
       });
     },
     watch: {
-      storage() {
-        console.log('storage changed!');
+      storage: {
+        handler() {
+          console.log('storage changed!');
+        },
+        deep: true,
       },
     },
   };
