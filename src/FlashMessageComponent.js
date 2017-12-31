@@ -1,7 +1,12 @@
 import Vue from 'vue';
 
+function isFunction(functionToCheck) {
+  const getType = {};
+  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+}
+
 const defaultTemplate = `
-<div class="flash__wrapper" @flash="updateFlash">
+<div class="flash__wrapper">
   <template v-for="(message, index) in storage">
     <transition
       :name="transitionName"
@@ -20,7 +25,7 @@ const defaultTemplate = `
           class="flash__close-button"
           data-dismiss="alert"
           aria-label="alertClose"
-          @click.stop.prevent="closeFlash(index)"
+          @click.stop.prevent="destroyFlash(index)"
         >
           <span aria-hidden="true">&times;</span>
         </button>
@@ -80,32 +85,31 @@ export default function ({
         return this.storage[id];
       },
 
-      closeFlash(id) {
+      destroyFlash(id) {
+        const flashObject = this.getFlash(id);
+        if (isFunction(flashObject.options.beforeDestroy)) {
+          flashObject.options.beforeDestroy();
+        }
         Vue.delete(this.storage, id);
       },
 
-      closeFlashAfterTimeout(id, timeout) {
+      destroyFlashAfterTimeout(id, timeout) {
         const flash = bus.storage[id];
         flash.timer = window.setTimeout(() => {
-          this.closeFlash(id);
+          this.destroyFlash(id);
         }, timeout);
-      },
-
-      updateFlash(msg) {
-        console.log(msg);
       },
     },
     created() {
       bus.$on('flash', (flash, msg, config) => {
         if (config.timeout > 0) {
-          this.closeFlashAfterTimeout(flash.id, config.timeout);
+          this.destroyFlashAfterTimeout(flash.id, config.timeout);
         }
       });
     },
     watch: {
       storage: {
         handler() {
-          console.log('storage changed!');
         },
         deep: true,
       },
