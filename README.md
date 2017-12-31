@@ -51,9 +51,9 @@ this.flash('Hello World', 'success', {
 ```
 
 ### Options
-| Name | Type | Desciption |
-|--:|--:|--:|
-| timeout | Number | Number in milliseconds until message self destruct |
+| Name          | Type     | Desciption |
+| ---:          |:---:     |:--- |
+| timeout       | Number   | Number in milliseconds until message self destruct |
 | beforeDestroy | Function | Fires bofore message is destroyed | 
 
 ### Props
