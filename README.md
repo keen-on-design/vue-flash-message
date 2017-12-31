@@ -57,12 +57,11 @@ this.flash('Hello World', 'success', {
 | beforeDestroy | Function | Fires bofore message is destroyed | 
 
 ### Props
-|     Name       |   Type      |          Default          |              Desciption
-|
-|     ---:       |    :---:    |           :---:           |                :---    
-| transitionName |   String    | custom-classes-transition | vue transitions `name` prop [More](https://vuejs.org/v2/guide/transitions.html#Custom-Transition-Classes)               |
-| transitionIn   |   String    | 'animated fadeInDown'     | space separted string for vue transitions `enter-active-class` prop [More](https://vuejs.org/v2/guide/transitions.html#Custom-Transition-Classes) |
-| transitionOut  |   String    | 'animated fadeOutUp'      | space separted string for vue transitions `leave-active-class` prop [More](https://vuejs.org/v2/guide/transitions.html#Custom-Transition-Classes) |
+|     Name       |   Type      |          Default          |              Desciption |
+|     ---:       |    :---:    |           :---:           |                :---  |  
+| transitionName |   String    | custom-classes-transition | vue transitions `name` |
+| transitionIn   |   String    | 'animated fadeInDown'     | space separted string for vue transitions `enter-active-class` prop |
+| transitionOut  |   String    | 'animated fadeOutUp'      | space separted string for vue transitions `leave-active-class` prop |
 
 ## License
 <p>Vue-Flash-Message is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
