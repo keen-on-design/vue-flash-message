@@ -1,16 +1,33 @@
 <template>
   <div id="app">
-    <flash-message transitionIn="animated swing"></flash-message>
-    <spawn-button></spawn-button>
+    <flash-message transitionIn="animated swing" class="flashpool"></flash-message>
+    <control-panel></control-panel>
   </div>
 </template>
 
 <script>
-import SpawnButton from './components/SpawnButton.vue';
+import ControlPanel from './components/ControlPanel/ControlPanel.vue';
 export default {
   name: 'app',
   components: {
-    SpawnButton
+    ControlPanel
   },
 };
 </script>
+
+<style>
+.flashpool {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
+  top: 20px;
+  right: 20px;
+  max-height: 400px;
+}
+
+.flashpool .flash__message {
+  width: 260px;
+  margin-left: 20px
+}
+</style>
