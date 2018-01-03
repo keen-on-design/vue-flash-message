@@ -20,7 +20,7 @@ export default {
   position: fixed;
   display: flex;
   flex-wrap: wrap-reverse;
-  flex-direction: column-reverse;
+  flex-direction: column;
   top: 20px;
   right: 20px;
   max-height: 400px;
