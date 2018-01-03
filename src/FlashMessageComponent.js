@@ -6,35 +6,34 @@ function isFunction(functionToCheck) {
 }
 
 const defaultTemplate = `
-<div class="flash__wrapper">
-  <transition-group
-    :name="transitionName"
-    :enter-active-class="transitionIn"
-    :leave-active-class="transitionOut"
-    mode="out-in"
-    tag="div"
+<transition-group
+  :name="transitionName"
+  :enter-active-class="transitionIn"
+  :leave-active-class="transitionOut"
+  mode="out-in"
+  tag="div"
+  class="flash__wrapper"
+>
+  <div
+    v-for="(message, index) in storage"
+    :key="index"
+    :class="cssClasses(index) + ' flash__message'"
+    role="alert"
+    aria-live="polite"
+    aria-atomic="true"
   >
-    <div
-      v-for="(message, index) in storage"
-      :key="index"
-      :class="cssClasses(index) + ' flash__message'"
-      role="alert"
-      aria-live="polite"
-      aria-atomic="true"
+    <div class="flash__message-content" v-html="message.message"></div>
+    <button v-if="!message.important"
+      type="button"
+      class="flash__close-button"
+      data-dismiss="alert"
+      aria-label="alertClose"
+      @click.stop.prevent="destroyFlash(index)"
     >
-      <div class="flash__message-content" v-html="message.message"></div>
-      <button v-if="!message.important"
-        type="button"
-        class="flash__close-button"
-        data-dismiss="alert"
-        aria-label="alertClose"
-        @click.stop.prevent="destroyFlash(index)"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </transition-group>
-</div>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</transition-group>
 `;
 
 export default function ({
