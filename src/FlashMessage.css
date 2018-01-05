@@ -4,7 +4,7 @@
 .flash__message {
   box-sizing: border-box;
   padding: 15px 30px 15px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
   border-radius: 4px;
   background-color: #cccccc;
@@ -50,4 +50,8 @@
   line-height: 10px;
   margin: 0;
   padding: 8px;
+}
+
+.flash__close-button:active,.flash__close-button:focus {
+  outline: none;
 }
