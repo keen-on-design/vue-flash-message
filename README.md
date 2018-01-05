@@ -54,14 +54,25 @@ this.flash('Hello World', 'success', {
 | Name          | Type     | Desciption |
 | ---:          |:---:     |:--- |
 | timeout       | Number   | Number in milliseconds until message self destruct |
+| important     | Boolean  | Defines if message has a close button. If set to true, message can be closed only after timeout or by destroy method |
 | beforeDestroy | Function | Fires bofore message is destroyed | 
 
 ### Props
 |     Name       |   Type      |          Default          |              Desciption |
-|     ---:       |    :---:    |           :---:           |                :---  |  
-| transitionName |   String    | custom-classes-transition | vue transitions `name` |
-| transitionIn   |   String    | 'animated fadeInDown'     | space separted string for vue transitions `enter-active-class` prop |
-| transitionOut  |   String    | 'animated fadeOutUp'      | space separted string for vue transitions `leave-active-class` prop |
+|     ---:       |    :---:    |           :---:           |                :---     |
+| transitionName |   String    | custom-classes-transition | vue transitions `name`  |
+| outerClass     |   String    | 'flash__wrapper'          | outer class name        |
+
+### API
+Flash method returns message object giving you full controll over it's contents, options and lifecycle.
+```javascript
+const myMessage = this.flash('My message', 'info');
+```
+|     Method     |                                                        Desciption |
+|     ---:       |                                                          :---     |
+| destroy        |  Destroys message    |
+| getStorage     |  Returns global flash message storage object     |
+More API methods coming soon :)
 
 ## License
 <p>Vue-Flash-Message is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
