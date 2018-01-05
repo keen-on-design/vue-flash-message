@@ -8,11 +8,8 @@ function isFunction(functionToCheck) {
 const defaultTemplate = `
 <transition-group
   :name="transitionName"
-  :enter-active-class="transitionIn"
-  :leave-active-class="transitionOut"
-  mode="out-in"
+  :class="outerClass"
   tag="div"
-  class="flash__wrapper"
 >
   <div
     v-for="(message, index) in storage"
@@ -23,7 +20,7 @@ const defaultTemplate = `
     aria-atomic="true"
   >
     <div class="flash__message-content" v-html="message.message"></div>
-    <button v-if="!message.important"
+    <button v-if="!message.options.important"
       type="button"
       class="flash__close-button"
       data-dismiss="alert"
@@ -41,8 +38,6 @@ export default function ({
     duration = 3000,
     // <String> template to use display flash
     template = defaultTemplate,
-    // <Boolean> if false then clear persisted storage every time
-    keep = true,
     // <Array> custom css classes for template
     css = null,
   } = {}, bus,
@@ -52,15 +47,11 @@ export default function ({
     props: {
       transitionName: {
         type: String,
-        default: 'custom-classes-transition',
+        default: 'flash-transition',
       },
-      transitionIn: {
+      outerClass: {
         type: String,
-        default: 'animated fadeInDown',
-      },
-      transitionOut: {
-        type: String,
-        default: 'animated fadeOutUp',
+        default: 'flash__wrapper',
       },
     },
     data() {
@@ -73,9 +64,6 @@ export default function ({
     computed: {
       storage() {
         return bus.storage;
-      },
-      show() {
-        return !this.closed;
       },
     },
     methods: {
