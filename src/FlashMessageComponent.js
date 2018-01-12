@@ -18,8 +18,10 @@ const defaultTemplate = `
     role="alert"
     aria-live="polite"
     aria-atomic="true"
+    @mouseover="onMouseOver(index)"
+    @mouseleave="onMouseOut(index)"
   >
-    <div class="flash__message-content" v-html="message.message"></div>
+    <div class="flash__message-content" v-html="message.content"></div>
     <button v-if="!message.options.important"
       type="button"
       class="flash__close-button"
@@ -73,34 +75,14 @@ export default function ({
       getFlash(id) {
         return this.storage[id];
       },
-
       destroyFlash(id) {
-        const flashObject = this.getFlash(id);
-        if (isFunction(flashObject.options.beforeDestroy)) {
-          flashObject.options.beforeDestroy();
-        }
-        Vue.delete(this.storage, id);
+        this.getFlash(id).destroy();
       },
-
-      destroyFlashAfterTimeout(id, timeout) {
-        const flash = bus.storage[id];
-        flash.timer = window.setTimeout(() => {
-          this.destroyFlash(id);
-        }, timeout);
+      onMouseOver(id) {
+        this.getFlash(id).onStartInteract();
       },
-    },
-    created() {
-      bus.$on('flash', (flash, msg, config) => {
-        if (config.timeout > 0) {
-          this.destroyFlashAfterTimeout(flash.id, config.timeout);
-        }
-      });
-    },
-    watch: {
-      storage: {
-        handler() {
-        },
-        deep: true,
+      onMouseOut(id) {
+        this.getFlash(id).onCompleteInteract();
       },
     },
   };
