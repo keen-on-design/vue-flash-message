@@ -34,10 +34,10 @@
     "vue-alert"
   ],
   "dependencies": {
-    "util-guid": "^1.0.1",
-    "vue": "^2.5.2"
+    "util-guid": "^1.0.1"
   },
   "devDependencies": {
+    "vue": "^2.5.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
