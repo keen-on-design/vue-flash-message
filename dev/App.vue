@@ -75,22 +75,29 @@ export default {
 
 <style>
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .flashpool {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: fixed;
   top: 20px;
   right: 20px;
   max-height: 400px;
   width: 260px;
-  perspective: 400px;
+  -webkit-perspective: 400px;
+          perspective: 400px;
 }
 
 .flashpool .flash__message {
   width: 260px;
+  -webkit-transition: all 500ms;
+  -o-transition: all 500ms;
   transition: all 500ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-family: 'Oxygen', sans-serif;
   font-size: 13px;
@@ -99,7 +106,8 @@ export default {
 
 .flash-enter, .flash-leave-to {
   opacity: 0;
-  transform: rotateX(-30deg) scale(.88) translateY(-30px);
+  -webkit-transform: rotateX(-30deg) scale(.88) translateY(-30px);
+          transform: rotateX(-30deg) scale(.88) translateY(-30px);
 }
 
 .flash-leave-active {
@@ -115,8 +123,13 @@ export default {
   height: 100vh;
   padding: 40px 24px 0 24px;
   overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border-right: 1px solid rgb(235, 234, 234);
 }
 
@@ -126,10 +139,15 @@ export default {
 }
 
 .cpanel__donate {
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   padding-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   opacity: .3;
 }
 
@@ -143,7 +161,9 @@ export default {
 }
 
 .cpanel__input {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: none;
   font-size: 18px;
   padding: 0 0 6px 0;
@@ -157,14 +177,17 @@ export default {
 }
 
 .cpanel input:focus {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   outline: none;
   border-bottom: 2px solid #47B784;
 }
 
 .cpanel button {
   width: 100%;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 1px solid #47B784;
   color: #47B784;
   font-weight: normal;
