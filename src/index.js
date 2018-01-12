@@ -45,6 +45,10 @@ class FlashMessage {
     this.storage.destroy(this.id);
   }
 
+  setSelfDestructTimeout(timeout) {
+    this.options.timeout = timeout;
+  }
+
   startSelfDestructTimer() {
     if (this.options.timeout > 0) {
       setTimeout(() => {
