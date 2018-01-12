@@ -1,10 +1,3 @@
-import Vue from 'vue';
-
-function isFunction(functionToCheck) {
-  const getType = {};
-  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-}
-
 const defaultTemplate = `
 <transition-group
   :name="transitionName"
