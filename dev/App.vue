@@ -35,6 +35,7 @@
           <span class="cpanel__hint">Set to true to remove close control.</span>
         </div>
         <button v-on:click="clickButton">Spawn flash message</button>
+        <button class="cpanel__reset" v-on:click="clickResetButton">Clear all</button>
       </div>
       <div class="cpanel__donate">
         <a href='https://ko-fi.com/V7V27B99' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
@@ -61,6 +62,10 @@ export default {
         timeout: this.delay,
         important: this.messageImportant,
       });
+    },
+    clickResetButton() {
+      const store = this.flash();
+      console.log(store.destroyAll());
     }
   },
 
@@ -202,6 +207,17 @@ export default {
 
 .cpanel button:active {
   background-color: rgb(225, 241, 234);
+}
+
+.cpanel button.cpanel__reset {
+  width: 100%;
+  border-color: transparent;
+  font-size: 13px;
+  color: #47B784;
+  padding: 0;
+  margin-top: 16px;
+  border-radius: 0;
+  cursor: pointer;
 }
 
 .cpanel__label, .cpanel__hint {
