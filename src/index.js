@@ -103,6 +103,9 @@ export default {
         destroy(id) {
           Vue.delete(this.storage, id);
         },
+        destroyAll() {
+          Vue.set(this, 'storage', {});
+        },
       },
     });
     options.method = options.method || 'flash';
