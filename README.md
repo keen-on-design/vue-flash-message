@@ -72,19 +72,24 @@ Flash method returns message object giving you full controll over it's contents,
 ```javascript
 const myMessage = this.flash('My message', 'info');
 ```
-| Method                 | Desciption |
-| ---:                   |:--- |
-| emit                   | Adds message to global storage. Helpfull when message is created with autoEmit: false |
-| destroy                | Destroys message |
-| getStorage             | Returns global flash message storage object |
-| setSelfDestructTimeout | Sets message self destruct timer value (in milliseconds) |
-| startSelfDestructTimer | Starts self destruct timer |
-| killSelfDestructTimer  | Stops self destruct timer |
+| Method                   | Desciption |
+| ---:                     |:--- |
+| emit()                   | Adds message to global storage. Helpfull when message is created with autoEmit: false |
+| destroy()                | Destroys message |
+| getStorage()             | Returns global flash message storage object |
+| setSelfDestructTimeout(timeout) | Sets message self destruct timer value (in milliseconds) |
+| startSelfDestructTimer() | Starts self destruct timer |
+| killSelfDestructTimer()  | Stops self destruct timer |
 
 Calling flash method with no arguments will return flash storage object.
 ```javascript
 const messageStorage = this.flash();
 ```
+| Method                 | Desciption |
+| ---:                   |:--- |
+| push(id, message)      | Adds message object to storage with id key |
+| destroy(id)            | Destroys message by given id |
+| destroyAll()           | Destroys all messages |
 
 ## License
 <p>Vue-Flash-Message is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
