@@ -97,6 +97,9 @@ export default {
         };
       },
       methods: {
+        flash(msg, type, opts) {
+          return new FlashMessage(FlashBus, msg, type, opts);
+        },
         push(id, message) {
           Vue.set(this.storage, id, message);
         },
