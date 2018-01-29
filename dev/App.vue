@@ -35,6 +35,8 @@
           <span class="cpanel__hint">Set to true to remove close control.</span>
         </div>
         <button v-on:click="clickButton">Spawn flash message</button>
+        <button class="cpanel__reset" v-on:click="emitVuex">Spawn from Vuex</button>
+        <br>
         <button class="cpanel__reset" v-on:click="clickResetButton">Clear all</button>
       </div>
       <div class="cpanel__donate">
@@ -45,6 +47,8 @@
 </template>
 
 <script>
+import store from './store';
+
 export default {
   name: 'app',
   data() {
@@ -66,6 +70,9 @@ export default {
     clickResetButton() {
       const store = this.flash();
       console.log(store.destroyAll());
+    },
+    emitVuex() {
+      store.dispatch('sampleAction');
     }
   },
 
