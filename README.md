@@ -67,7 +67,7 @@ this.flash('Hello World', 'success', {
 | transitionName |   String    | custom-classes-transition | vue transitions `name`  |
 | outerClass     |   String    | 'flash__wrapper'          | outer class name        |
 
-### API
+## API
 Flash method returns message object giving you full controll over it's contents, options and lifecycle.
 ```javascript
 const myMessage = this.flash('My message', 'info');
@@ -87,9 +87,16 @@ const messageStorage = this.flash();
 ```
 | Method                 | Desciption |
 | ---:                   |:--- |
+| flash(...)             | Same as this.flash method, except it does not return storage instance |
 | push(id, message)      | Adds message object to storage with id key |
 | destroy(id)            | Destroys message by given id |
 | destroyAll()           | Destroys all messages |
+
+## Vuex usage
+You can access flash message storage object directly from Vue prototype:
+```
+Vue.prototype.$flashStorage.flash(...);
+```
 
 ## License
 <p>Vue-Flash-Message is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
