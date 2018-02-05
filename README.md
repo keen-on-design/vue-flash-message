@@ -13,7 +13,7 @@
 ## Configuration
 ```javascript
 import Vue from 'vue';
-import VueFlashMessage from '../src';
+import VueFlashMessage from 'vue-flash-message';
 Vue.use(VueFlashMessage);
 ```
 You can rename default flash method via options: 
