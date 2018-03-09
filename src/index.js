@@ -10,7 +10,7 @@ function isFunction(functionToCheck) {
 }
 
 class FlashMessage {
-  constructor(Bus, messageContent, messageType, messageOptions) {
+  constructor(Bus, messageContent, messageType, messageOptions, timeout) {
     const config = {
       autoEmit: true,
       important: false,
@@ -22,6 +22,7 @@ class FlashMessage {
       onStartInteract: null,
       onCompleteInteract: null,
     };
+    config.timeout = timeout || config.timeout;
     this.storage = Bus;
     this.content = messageContent;
     this.options = Object.assign(config, messageOptions);
@@ -98,7 +99,7 @@ export default {
       },
       methods: {
         flash(msg, type, opts) {
-          return new FlashMessage(FlashBus, msg, type, opts);
+          return new FlashMessage(FlashBus, msg, type, opts, options.timeout);
         },
         push(id, message) {
           Vue.set(this.storage, id, message);
@@ -118,7 +119,7 @@ export default {
       methods: {
         [options.method](msg, type, opts) {
           if (arguments.length > 0) {
-            return new FlashMessage(FlashBus, msg, type, opts);
+            return new FlashMessage(FlashBus, msg, type, opts, options.timeout);
           }
           return FlashBus;
         },
