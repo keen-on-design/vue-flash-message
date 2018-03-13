@@ -50,6 +50,18 @@ this.flash('Hello World', 'success', {
 });
 ```
 
+## Passing global options
+```javascript
+Vue.use(VueFlashMessage, {
+  messageOptions: {
+    timeout: 1000,
+    important: true,
+    autoEmit: false,
+    pauseOnInteract: true
+  }
+});
+```
+
 ### Options
 | Name               | Type     | Default | Desciption                                                                  |
 | ---:               |:---:     |:---     |:---                                                                         |
