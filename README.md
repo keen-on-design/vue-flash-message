@@ -40,6 +40,22 @@ this.flash('Spawning too much alerts is a bad UX', 'warning');
 this.flash('Live long and prosper', 'info');
 ```
 
+## Shortcut methods
+You can also use shortcut methods to output common message types
+```javascript
+this.success('Data loaded');
+this.error('Validation failed');
+this.warning('Spawning too much alerts is a bad UX');
+this.info('Live long and prosper');
+```
+You if you don't want to spoil your components with these methods,
+you can switch them off by using createShortcuts config option.
+```javascript
+Vue.use(VueFlashMessage, {
+  createShortcuts: false,
+});
+```
+
 ## Usage with options
 ```javascript
 this.flash('Hello World', 'success', {
