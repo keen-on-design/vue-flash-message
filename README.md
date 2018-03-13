@@ -20,6 +20,18 @@ You can rename default flash method via options:
 ```javascript
 Vue.use(VueFlashMessage, {method: 'iPreferQuickSilver'});
 ```
+You can also pass your custom template to component:
+```javascript
+const template = `
+  <div
+    v-for="(message, index) in storage"
+    :key="index"
+  >
+    <div class="flash__message-content" v-html="message.content"></div>
+  </div>
+`;
+Vue.use(VueFlashMessage, { template });
+```
 
 ## Usage
 Output flash message pool and configure transitions. 
@@ -66,7 +78,7 @@ this.flash('Hello World', 'success', {
 });
 ```
 
-## Passing global options
+## Passing global message options
 ```javascript
 Vue.use(VueFlashMessage, {
   messageOptions: {
