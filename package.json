@@ -34,7 +34,7 @@
     "vue-alert"
   ],
   "dependencies": {
-    "util-guid": "^1.0.1"
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
