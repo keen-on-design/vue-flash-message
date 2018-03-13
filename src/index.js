@@ -1,4 +1,4 @@
-import guid from 'util-guid';
+import uuidv4 from 'uuid/v4';
 import { setTimeout, clearTimeout } from 'timers';
 import FlashMessageComponent from './FlashMessageComponent';
 
@@ -10,7 +10,7 @@ function isFunction(functionToCheck) {
 }
 
 class FlashMessage {
-  constructor(Bus, messageContent, messageType, messageOptions) {
+  constructor(Bus, messageContent, messageType, messageOptions, globalDefaults) {
     const config = {
       autoEmit: true,
       important: false,
@@ -24,9 +24,9 @@ class FlashMessage {
     };
     this.storage = Bus;
     this.content = messageContent;
-    this.options = Object.assign(config, messageOptions);
+    this.options = Object.assign(config, globalDefaults, messageOptions);
     this.type = messageType;
-    this.id = guid(16);
+    this.id = uuidv4();
     this.timer = null;
 
     if (this.options.autoEmit) {
@@ -118,7 +118,7 @@ export default {
       methods: {
         [options.method](msg, type, opts) {
           if (arguments.length > 0) {
-            return new FlashMessage(FlashBus, msg, type, opts);
+            return new FlashMessage(FlashBus, msg, type, opts, options.messageOptions);
           }
           return FlashBus;
         },

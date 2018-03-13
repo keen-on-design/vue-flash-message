@@ -1,5 +1,16 @@
 webpackJsonp([1],{
 
+/***/ "/wbf":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('flash-message',{staticClass:"flashpool",attrs:{"transitionName":"flash"}}),_vm._v(" "),_c('section',{staticClass:"cpanel"},[_c('div',{staticClass:"cpanel__wrapper"},[_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"messageType"}},[_vm._v("Flash message type")]),_vm._v(" "),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageType),expression:"messageType"}],attrs:{"id":"messageType","name":"messageType"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.messageType=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_c('option',{attrs:{"selected":""}},[_vm._v("success")]),_vm._v(" "),_c('option',[_vm._v("error")]),_vm._v(" "),_c('option',[_vm._v("warning")]),_vm._v(" "),_c('option',[_vm._v("info")])]),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Flasm message preset class. You can use your own classes though.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"messageContents"}},[_vm._v("Message contents")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageContents),expression:"messageContents"}],staticClass:"cpanel__input",attrs:{"type":"text","id":"messageContents","name":"messageContents"},domProps:{"value":(_vm.messageContents)},on:{"input":function($event){if($event.target.composing){ return; }_vm.messageContents=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Plain text or html.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"config__delay"}},[_vm._v("Autoclose delay")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.delay),expression:"delay"}],staticClass:"cpanel__input",attrs:{"id":"config__delay"},domProps:{"value":(_vm.delay)},on:{"input":function($event){if($event.target.composing){ return; }_vm.delay=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Delay in milliseconds. Set to 0 to disable.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageImportant),expression:"messageImportant"}],staticClass:"cpanel__checkbox",attrs:{"id":"config__important","type":"checkbox"},domProps:{"checked":Array.isArray(_vm.messageImportant)?_vm._i(_vm.messageImportant,null)>-1:(_vm.messageImportant)},on:{"change":function($event){var $$a=_vm.messageImportant,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.messageImportant=$$a.concat([$$v]))}else{$$i>-1&&(_vm.messageImportant=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.messageImportant=$$c}}}}),_vm._v(" "),_c('span',[_vm._v("important")]),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Set to true to remove close control.")])]),_vm._v(" "),_c('button',{on:{"click":_vm.clickButton}},[_vm._v("Spawn flash message")]),_vm._v(" "),_c('button',{staticClass:"cpanel__reset",on:{"click":_vm.emitVuex}},[_vm._v("Spawn from Vuex")]),_vm._v(" "),_c('br'),_vm._v(" "),_c('button',{staticClass:"cpanel__reset",on:{"click":_vm.clickResetButton}},[_vm._v("Clear all")])]),_vm._v(" "),_vm._m(0)])],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cpanel__donate"},[_c('a',{attrs:{"href":"https://ko-fi.com/V7V27B99","target":"_blank"}},[_c('img',{staticStyle:{"border":"0px","height":"36px"},attrs:{"height":"36","src":"https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0","border":"0","alt":"Buy Me a Coffee at ko-fi.com"}})])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21,9 +32,9 @@ module.exports = __webpack_require__("a/HC");
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__("Q6PX");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3bff85ef_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__("REUb");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08128f22_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__("/wbf");
 function injectStyle (ssrContext) {
-  __webpack_require__("NEBc")
+  __webpack_require__("LihI")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -41,7 +52,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3bff85ef_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08128f22_hasScoped_false_transformToRequire_video_src_poster_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -53,7 +64,7 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "NEBc":
+/***/ "LihI":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -154,17 +165,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "REUb":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('flash-message',{staticClass:"flashpool",attrs:{"transitionName":"flash"}}),_vm._v(" "),_c('section',{staticClass:"cpanel"},[_c('div',{staticClass:"cpanel__wrapper"},[_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"messageType"}},[_vm._v("Flash message type")]),_vm._v(" "),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageType),expression:"messageType"}],attrs:{"id":"messageType","name":"messageType"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.messageType=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_c('option',{attrs:{"selected":""}},[_vm._v("success")]),_vm._v(" "),_c('option',[_vm._v("error")]),_vm._v(" "),_c('option',[_vm._v("warning")]),_vm._v(" "),_c('option',[_vm._v("info")])]),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Flasm message preset class. You can use your own classes though.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"messageContents"}},[_vm._v("Message contents")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageContents),expression:"messageContents"}],staticClass:"cpanel__input",attrs:{"type":"text","id":"messageContents","name":"messageContents"},domProps:{"value":(_vm.messageContents)},on:{"input":function($event){if($event.target.composing){ return; }_vm.messageContents=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Plain text or html.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('label',{staticClass:"cpanel__label",attrs:{"for":"config__delay"}},[_vm._v("Autoclose delay")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.delay),expression:"delay"}],staticClass:"cpanel__input",attrs:{"id":"config__delay"},domProps:{"value":(_vm.delay)},on:{"input":function($event){if($event.target.composing){ return; }_vm.delay=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Delay in milliseconds. Set to 0 to disable.")])]),_vm._v(" "),_c('div',{staticClass:"cpanel__group"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.messageImportant),expression:"messageImportant"}],staticClass:"cpanel__checkbox",attrs:{"id":"config__important","type":"checkbox"},domProps:{"checked":Array.isArray(_vm.messageImportant)?_vm._i(_vm.messageImportant,null)>-1:(_vm.messageImportant)},on:{"change":function($event){var $$a=_vm.messageImportant,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.messageImportant=$$a.concat([$$v]))}else{$$i>-1&&(_vm.messageImportant=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.messageImportant=$$c}}}}),_vm._v(" "),_c('span',[_vm._v("important")]),_vm._v(" "),_c('span',{staticClass:"cpanel__hint"},[_vm._v("Set to true to remove close control.")])]),_vm._v(" "),_c('button',{on:{"click":_vm.clickButton}},[_vm._v("Spawn flash message")]),_vm._v(" "),_c('button',{staticClass:"cpanel__reset",on:{"click":_vm.emitVuex}},[_vm._v("Spawn from Vuex")]),_vm._v(" "),_c('br'),_vm._v(" "),_c('button',{staticClass:"cpanel__reset",on:{"click":_vm.clickResetButton}},[_vm._v("Clear all")])]),_vm._v(" "),_vm._m(0)])],1)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cpanel__donate"},[_c('a',{attrs:{"href":"https://ko-fi.com/V7V27B99","target":"_blank"}},[_c('img',{staticStyle:{"border":"0px","height":"36px"},attrs:{"height":"36","src":"https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0","border":"0","alt":"Buy Me a Coffee at ko-fi.com"}})])])}]
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "a/HC":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -185,7 +185,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__("35fo");
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].config.productionTip = false;
-__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_2__src__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_2__src__["a" /* default */], {
+  messageOptions: {
+    timeout: 3000,
+  },
+});
 
 
 /* eslint-disable no-new */
@@ -213,9 +217,9 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("wxAW");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_util_guid__ = __webpack_require__("tDgs");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_util_guid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_util_guid__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_timers__ = __webpack_require__("ZPKS");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_uuid_v4__ = __webpack_require__("DtRx");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_uuid_v4___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_uuid_v4__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_timers__ = __webpack_require__("162o");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_timers__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__FlashMessageComponent__ = __webpack_require__("xq+K");
 /* unused harmony reexport FlashMessageComponent */
@@ -235,7 +239,7 @@ function isFunction(functionToCheck) {
 }
 
 var FlashMessage = function () {
-  function FlashMessage(Bus, messageContent, messageType, messageOptions) {
+  function FlashMessage(Bus, messageContent, messageType, messageOptions, globalDefaults) {
     __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, FlashMessage);
 
     var config = {
@@ -251,9 +255,9 @@ var FlashMessage = function () {
     };
     this.storage = Bus;
     this.content = messageContent;
-    this.options = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign___default()(config, messageOptions);
+    this.options = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign___default()(config, globalDefaults, messageOptions);
     this.type = messageType;
-    this.id = __WEBPACK_IMPORTED_MODULE_4_util_guid___default()(16);
+    this.id = __WEBPACK_IMPORTED_MODULE_4_uuid_v4___default()();
     this.timer = null;
 
     if (this.options.autoEmit) {
@@ -358,7 +362,7 @@ var FlashMessage = function () {
     Vue.mixin({
       methods: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()({}, options.method, function (msg, type, opts) {
         if (arguments.length > 0) {
-          return new FlashMessage(FlashBus, msg, type, opts);
+          return new FlashMessage(FlashBus, msg, type, opts, options.messageOptions);
         }
         return FlashBus;
       })
