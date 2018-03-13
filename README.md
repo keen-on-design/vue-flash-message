@@ -20,7 +20,7 @@ You can rename default flash method via options:
 ```javascript
 Vue.use(VueFlashMessage, {method: 'iPreferQuickSilver'});
 ```
-You can also pass your custom template to component:
+You can also pass your custom template to the component:
 ```javascript
 const template = `
   <div
@@ -78,18 +78,6 @@ this.flash('Hello World', 'success', {
 });
 ```
 
-## Passing global message options
-```javascript
-Vue.use(VueFlashMessage, {
-  messageOptions: {
-    timeout: 1000,
-    important: true,
-    autoEmit: false,
-    pauseOnInteract: true
-  }
-});
-```
-
 ### Options
 | Name               | Type     | Default | Desciption                                                                  |
 | ---:               |:---:     |:---     |:---                                                                         |
@@ -106,6 +94,18 @@ Vue.use(VueFlashMessage, {
 |     ---:       |    :---:    |           :---:           |                :---     |
 | transitionName |   String    | custom-classes-transition | vue transitions `name`  |
 | outerClass     |   String    | 'flash__wrapper'          | outer class name        |
+
+## Passing global message options
+```javascript
+Vue.use(VueFlashMessage, {
+  messageOptions: {
+    timeout: 1000,
+    important: true,
+    autoEmit: false,
+    pauseOnInteract: true
+  }
+});
+```
 
 ## API
 Flash method returns message object giving you full controll over it's contents, options and lifecycle.
