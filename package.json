@@ -1,10 +1,6 @@
 {
   "name": "vue-flash-message",
-<<<<<<< HEAD
-  "version": "0.4.1",
-=======
   "version": "0.5.0",
->>>>>>> 5ce24070bfc8a4cb68010a2798cb35b6ead3285f
   "description": "Vue.js flash message component",
   "author": "Nikita Kin <maccuro.media@gmail.com>",
   "homepage": "http://keen-design.ru",
