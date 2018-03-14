@@ -114,6 +114,21 @@ export default {
     options.method = options.method || 'flash';
     options.storage = options.storage || '$flashStorage';
 
+    const shortcuts = !options.createShortcuts ? {} : {
+      info(msg, opts) {
+        return this[options.method](msg, 'info', opts);
+      },
+      error(msg, opts) {
+        return this[options.method](msg, 'error', opts);
+      },
+      warning(msg, opts) {
+        return this[options.method](msg, 'warning', opts);
+      },
+      success(msg, opts) {
+        return this[options.method](msg, 'success', opts);
+      },
+    };
+
     Vue.mixin({
       methods: {
         [options.method](msg, type, opts) {
@@ -122,6 +137,7 @@ export default {
           }
           return FlashBus;
         },
+        ...shortcuts,
       },
     });
 

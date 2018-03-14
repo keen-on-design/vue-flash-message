@@ -20,6 +20,18 @@ You can rename default flash method via options:
 ```javascript
 Vue.use(VueFlashMessage, {method: 'iPreferQuickSilver'});
 ```
+You can also pass your custom template to the component:
+```javascript
+const template = `
+  <div
+    v-for="(message, index) in storage"
+    :key="index"
+  >
+    <div class="flash__message-content" v-html="message.content"></div>
+  </div>
+`;
+Vue.use(VueFlashMessage, { template });
+```
 
 ## Usage
 Output flash message pool and configure transitions. 
@@ -40,24 +52,28 @@ this.flash('Spawning too much alerts is a bad UX', 'warning');
 this.flash('Live long and prosper', 'info');
 ```
 
+## Shortcut methods
+You can also use shortcut methods to output common message types
+```javascript
+this.success('Data loaded');
+this.error('Validation failed');
+this.warning('Spawning too much alerts is a bad UX');
+this.info('Live long and prosper');
+```
+You if you don't want to spoil your components with these methods,
+you can switch them off by using createShortcuts config option.
+```javascript
+Vue.use(VueFlashMessage, {
+  createShortcuts: false,
+});
+```
+
 ## Usage with options
 ```javascript
 this.flash('Hello World', 'success', {
   timeout: 3000,
   beforeDestroy() {
     alert('oh no, not again!');
-  }
-});
-```
-
-## Passing global options
-```javascript
-Vue.use(VueFlashMessage, {
-  messageOptions: {
-    timeout: 1000,
-    important: true,
-    autoEmit: false,
-    pauseOnInteract: true
   }
 });
 ```
@@ -78,6 +94,18 @@ Vue.use(VueFlashMessage, {
 |     ---:       |    :---:    |           :---:           |                :---     |
 | transitionName |   String    | custom-classes-transition | vue transitions `name`  |
 | outerClass     |   String    | 'flash__wrapper'          | outer class name        |
+
+## Passing global message options
+```javascript
+Vue.use(VueFlashMessage, {
+  messageOptions: {
+    timeout: 1000,
+    important: true,
+    autoEmit: false,
+    pauseOnInteract: true
+  }
+});
+```
 
 ## API
 Flash method returns message object giving you full controll over it's contents, options and lifecycle.
