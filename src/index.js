@@ -11,7 +11,7 @@ function isFunction(functionToCheck) {
 
 class FlashMessage {
   constructor(Bus, messageContent, messageType, messageOptions, globalDefaults) {
-    const config = {
+    const defaults = {
       autoEmit: true,
       important: false,
       pauseOnInteract: false,
@@ -24,7 +24,7 @@ class FlashMessage {
     };
     this.storage = Bus;
     this.content = messageContent;
-    this.options = Object.assign(config, globalDefaults, messageOptions);
+    this.options = Object.assign(defaults, globalDefaults, messageOptions);
     this.type = messageType;
     this.id = uuidv4();
     this.timer = null;
@@ -87,8 +87,14 @@ class FlashMessage {
 }
 
 export default {
-  install(Vue, config) {
-    const options = config || {};
+  install(Vue, config = {}) {
+    const defaults = {
+      method: 'flash',
+      storage: '$flashStorage',
+      createShortcuts: true,
+      name: 'flash-message',
+    };
+    const options = Object.assign(defaults, config);
     const FlashBus = new Vue({
       data() {
         return {
@@ -111,8 +117,6 @@ export default {
         },
       },
     });
-    options.method = options.method || 'flash';
-    options.storage = options.storage || '$flashStorage';
 
     const shortcuts = !options.createShortcuts ? {} : {
       info(msg, opts) {
@@ -143,7 +147,7 @@ export default {
 
     Vue.prototype[options.storage] = FlashBus;
 
-    Vue.component(options.name || 'flash-message', FlashMessageComponent(options, FlashBus));
+    Vue.component(options.name, FlashMessageComponent(options, FlashBus));
   },
 };
 
