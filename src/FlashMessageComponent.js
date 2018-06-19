@@ -29,14 +29,13 @@ const defaultTemplate = `
 `;
 
 export default function ({
-    // <Number> duration of auto close flash message (in milliseconds)
-    duration = 3000,
-    // <String> template to use display flash
-    template = defaultTemplate,
-    // <Array> custom css classes for template
-    css = null,
-  } = {}, bus,
-) {
+  // <Number> duration of auto close flash message (in milliseconds)
+  duration = 3000,
+  // <String> template to use display flash
+  template = defaultTemplate,
+  // <Array> custom css classes for template
+  css = null,
+} = {}, bus) {
   return {
     template,
     props: {
@@ -72,10 +71,16 @@ export default function ({
         this.getFlash(id).destroy();
       },
       onMouseOver(id) {
-        this.getFlash(id).onStartInteract();
+        const flash = this.getFlash(id);
+        if (typeof flash !== 'undefined') {
+          flash.onStartInteract();
+        }
       },
       onMouseOut(id) {
-        this.getFlash(id).onCompleteInteract();
+        const flash = this.getFlash(id);
+        if (typeof flash !== 'undefined') {
+          flash.onCompleteInteract();
+        }
       },
     },
   };
