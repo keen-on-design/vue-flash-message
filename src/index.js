@@ -1,4 +1,3 @@
-import uuidv4 from 'uuid/v4';
 import { setTimeout, clearTimeout } from 'timers';
 import FlashMessageComponent from './FlashMessageComponent';
 
@@ -9,6 +8,18 @@ function isFunction(functionToCheck) {
   return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 }
 
+/*eslint-disable */
+function generateUUID() {
+  let d = new Date().getTime();
+  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (d + (Math.random() * 16)) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c === 'x' ? r : (r&0x3|0x8)).toString(16);
+  });
+  return uuid;
+}
+
+/* eslint-enable */
 class FlashMessage {
   constructor(Bus, messageContent, messageType, messageOptions, globalDefaults) {
     const defaults = {
@@ -26,7 +37,7 @@ class FlashMessage {
     this.content = messageContent;
     this.options = Object.assign(defaults, globalDefaults, messageOptions);
     this.type = messageType;
-    this.id = uuidv4();
+    this.id = generateUUID();
     this.timer = null;
 
     if (this.options.autoEmit) {
