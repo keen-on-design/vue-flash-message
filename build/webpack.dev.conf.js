@@ -6,7 +6,7 @@ const config = require('../config');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
 
@@ -14,6 +14,7 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 module.exports = merge(baseWebpackConfig, {
+  mode: 'development',
   entry: {
     app: [ './dev/main.js' ]
   },
@@ -30,12 +31,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   devtool: '#cheap-module-eval-source-map',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'vue-flash-message.min.css',
     }),
     new webpack.HotModuleReplacementPlugin(),

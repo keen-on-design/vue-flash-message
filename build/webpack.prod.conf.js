@@ -3,12 +3,13 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.conf');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 process.env.NODE_ENV = 'production';
 
 module.exports = merge(baseWebpackConfig, {
+  mode: 'production',
   entry: [
     './src/index.js'
   ],
@@ -20,18 +21,8 @@ module.exports = merge(baseWebpackConfig, {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     // extract css into its own file
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'vue-flash-message.min.css',
     }),
     // Compress extracted CSS. We are using this plugin so that possible
