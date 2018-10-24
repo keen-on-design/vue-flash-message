@@ -130,16 +130,16 @@ export default {
     });
 
     const shortcuts = !options.createShortcuts ? {} : {
-      info(msg, opts) {
+      flashInfo(msg, opts) {
         return this[options.method](msg, 'info', opts);
       },
-      error(msg, opts) {
+      flashError(msg, opts) {
         return this[options.method](msg, 'error', opts);
       },
-      warning(msg, opts) {
+      flashWarning(msg, opts) {
         return this[options.method](msg, 'warning', opts);
       },
-      success(msg, opts) {
+      flashSuccess(msg, opts) {
         return this[options.method](msg, 'success', opts);
       },
     };
