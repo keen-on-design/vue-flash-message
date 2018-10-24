@@ -33,8 +33,10 @@
     "alert-message",
     "vue-alert"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.2"
     "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
