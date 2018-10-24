@@ -46,6 +46,10 @@ export default function ({
             'aria-live': 'polite',
             'aria-atomic': 'true',
           },
+          on: {
+            mouseover: this.onMouseOver(messageId),
+            mouseleave: this.onMouseOut(messageId),
+          },
         }, subchildren));
         return false;
       });
