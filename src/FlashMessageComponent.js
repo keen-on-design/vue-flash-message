@@ -47,8 +47,8 @@ export default function ({
             'aria-atomic': 'true',
           },
           on: {
-            mouseover: this.onMouseOver(messageId),
-            mouseleave: this.onMouseOut(messageId),
+            mouseover: () => { this.onMouseOver(messageId); },
+            mouseleave: () => { this.onMouseOut(messageId); },
           },
         }, subchildren));
         return false;
