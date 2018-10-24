@@ -1,43 +1,65 @@
-const defaultTemplate = `
-<transition-group
-  :name="transitionName"
-  :class="outerClass"
-  tag="div"
->
-  <div
-    v-for="(message, index) in storage"
-    :key="index"
-    :class="cssClasses(index) + ' flash__message'"
-    role="alert"
-    aria-live="polite"
-    aria-atomic="true"
-    @mouseover="onMouseOver(index)"
-    @mouseleave="onMouseOut(index)"
-  >
-    <div class="flash__message-content" v-html="message.content"></div>
-    <button v-if="!message.options.important"
-      type="button"
-      class="flash__close-button"
-      data-dismiss="alert"
-      aria-label="alertClose"
-      @click.stop.prevent="destroyFlash(index)"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</transition-group>
-`;
-
 export default function ({
   // <Number> duration of auto close flash message (in milliseconds)
   duration = 3000,
-  // <String> template to use display flash
-  template = defaultTemplate,
   // <Array> custom css classes for template
   css = null,
 } = {}, bus) {
   return {
-    template,
+    render(createElement) {
+      const children = [];
+      Object.keys(this.storage).map((messageId) => {
+        const subchildren = [
+          createElement('div', {
+            attrs: { class: 'flash__message-content' },
+            domProps: { innerHTML: this.storage[messageId].content },
+          }),
+        ];
+
+        if (!this.storage[messageId].options.important) {
+          subchildren.push(createElement('button', {
+            attrs: {
+              type: 'button',
+              class: 'flash__close-button',
+              'data-dismiss': 'alert',
+              'aria-label': 'alertClose',
+            },
+            on: {
+              click: (event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                this.destroyFlash(messageId);
+              },
+            },
+          }, [
+            createElement('span', {
+              attrs: { 'aria-hidden': 'true' },
+              domProps: { innerHTML: '&times;' },
+            }),
+          ]));
+        }
+
+        children.push(createElement('div', {
+          class: `${this.cssClasses(messageId)} flash__message`,
+          key: messageId,
+          attrs: {
+            role: 'alert',
+            'aria-live': 'polite',
+            'aria-atomic': 'true',
+          },
+        }, subchildren));
+        return false;
+      });
+
+      return createElement('div', {}, [
+        createElement('transition-group', {
+          attrs: {
+            name: this.transitionName,
+            tag: 'div',
+          },
+          class: this.outerClass,
+        }, children),
+      ]);
+    },
     props: {
       transitionName: {
         type: String,
