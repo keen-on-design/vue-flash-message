@@ -1,6 +1,6 @@
 # vue-flash-message
 
-<p>Simple vue flash alert message component. It is made to display a list of messages and give individual control over each message instance and global message storage. Component is inspired by old goodies as jGrowl. Currently in active development.</p>
+<p>Simple yet flexible vue flash alert message component. It is made to display a list of messages and give individual control over each instance and global message storage. Component is inspired by old goodies as jGrowl.</p>
 
 ## Demo & Example
 #### [Live demo](http://test.keen-design.ru/vue-flash-message/)
@@ -18,19 +18,7 @@ Vue.use(VueFlashMessage);
 ```
 You can rename default flash method via options: 
 ```javascript
-Vue.use(VueFlashMessage, {method: 'iPreferQuickSilver'});
-```
-You can also pass your custom template to the component:
-```javascript
-const template = `
-  <div
-    v-for="(message, index) in storage"
-    :key="index"
-  >
-    <div class="flash__message-content" v-html="message.content"></div>
-  </div>
-`;
-Vue.use(VueFlashMessage, { template });
+Vue.use(VueFlashMessage, { method: 'iPreferQuickSilver' });
 ```
 
 ## Usage
@@ -55,10 +43,10 @@ this.flash('Live long and prosper', 'info');
 ## Shortcut methods
 You can also use shortcut methods to output common message types
 ```javascript
-this.success('Data loaded');
-this.error('Validation failed');
-this.warning('Spawning too much alerts is a bad UX');
-this.info('Live long and prosper');
+this.flashSuccess('Data loaded');
+this.flashError('Validation failed');
+this.flashWwarning('Spawning too much alerts is a bad UX');
+this.flashIinfo('Live long and prosper');
 ```
 You if you don't want to spoil your components with these methods,
 you can switch them off by using createShortcuts config option.
