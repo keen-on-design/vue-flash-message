@@ -1,6 +1,6 @@
 {
   "name": "vue-flash-message",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Vue.js flash message component",
   "author": "Nikita Kin <maccuro.media@gmail.com>",
   "homepage": "http://keen-design.ru",
@@ -33,8 +33,7 @@
     "alert-message",
     "vue-alert"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "extract-text-webpack-plugin": "^3.0.2",
     "autoprefixer": "^8.6.3",
