@@ -45,8 +45,8 @@ You can also use shortcut methods to output common message types
 ```javascript
 this.flashSuccess('Data loaded');
 this.flashError('Validation failed');
-this.flashWwarning('Spawning too much alerts is a bad UX');
-this.flashIinfo('Live long and prosper');
+this.flashWarning('Spawning too much alerts is a bad UX');
+this.flashInfo('Live long and prosper');
 ```
 You if you don't want to spoil your components with these methods,
 you can switch them off by using createShortcuts config option.
