@@ -1,6 +1,9 @@
 # vue-flash-message
-
+[![npm](https://img.shields.io/npm/dm/vue-flash-message.svg)](https://www.npmjs.com/package/vue-flash-message)
+[![NpmLicense](https://img.shields.io/npm/l/vue-flash-message.svg)](https://github.com/keen-on-design/vue-flash-message/blob/master/LICENSE)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/vuejs/awesome-vue)
 <p>Simple yet flexible vue flash alert message component. It is made to display a list of messages and give individual control over each instance and global message storage. Component is inspired by old goodies as jGrowl.</p>
+<a href="https://www.buymeacoffee.com/Rtc2S9k" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## Demo & Example
 #### [Live demo](http://test.keen-design.ru/vue-flash-message/)
