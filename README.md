@@ -51,7 +51,7 @@ this.flashError('Validation failed');
 this.flashWarning('Spawning too much alerts is a bad UX');
 this.flashInfo('Live long and prosper');
 ```
-You if you don't want to spoil your components with these methods,
+If you don't want to spoil your components with these methods,
 you can switch them off by using createShortcuts config option.
 ```javascript
 Vue.use(VueFlashMessage, {
@@ -76,7 +76,7 @@ this.flash('Hello World', 'success', {
 | important          | Boolean  | false   | Defines if message has a close button.                                      |
 | autoEmit           | Boolean  | true    | Defines if message should be emitted immediately after calling flash method |
 | pauseOnInteract    | Boolean  | false   | Defines if message destruct timer should be paused on user interaction      |
-| beforeDestroy      | Function | -       | Fires bofore message is destroyed                                           |
+| beforeDestroy      | Function | -       | Fires before message is destroyed                                           |
 | onStartInteract    | Function | -       | Fires on user interact with message element                                 | 
 | onCompleteInteract | Function | -       | Fires on user complete interaction with message element                     | 
 
@@ -99,11 +99,11 @@ Vue.use(VueFlashMessage, {
 ```
 
 ## API
-Flash method returns message object giving you full controll over it's contents, options and lifecycle.
+Flash method returns a message object giving you full control over its contents, options and lifecycle.
 ```javascript
 const myMessage = this.flash('My message', 'info');
 ```
-| Method                   | Desciption |
+| Method                   | Description |
 | ---:                     |:--- |
 | emit()                   | Adds message to global storage. Helpfull when message is created with autoEmit: false |
 | destroy()                | Destroys message |
@@ -116,7 +116,7 @@ Calling flash method with no arguments will return flash storage object.
 ```javascript
 const messageStorage = this.flash();
 ```
-| Method                 | Desciption |
+| Method                 | Description |
 | ---:                   |:--- |
 | flash(...)             | Same as this.flash method, except it does not return storage instance |
 | push(id, message)      | Adds message object to storage with id key |
